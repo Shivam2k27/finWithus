@@ -18,17 +18,17 @@ const navbar = () => {
     },[])
   return (
     <div>
-        <div className={`${isScroll? "myDark":"myBright"}  flex flex-col w-full h-14 md:flex  fixed`}>
+        <div className={`${isScroll? "myDark":"myBright"}  flex flex-col w-full h-14 md:flex `}>
             <div className='md:block block'>
             <p className='text-2xl p-2 ml-2 mr-8'>FinWithUs</p>
             </div>
-        <ul className={ `bg-mygreen w-full md:flex md:w-[100%]  md:bg-transparent md:absolute md:top-1.5 md:left-48 md:text-center ${isScroll?"md:myDark":"md:myBright"} ${listButton?"hidden":""}`}>
+        <ul className={ `bg-mygreen z-999 w-full md:flex md:w-[100%]  md:bg-transparent md:absolute md:top-1.5 md:left-48 md:text-center ${isScroll?"md:myDark":"md:myBright"} ${listButton?"hidden":""}`}>
             <li className={`h-10 md:w-[20%] hover:text-blue-600  text-2xl text-center ${isScroll?"md:myDark":"md:myBright"}`}>Products</li>
             <li className={`h-10 md:w-[20%]  hover:text-blue-600  text-2xl text-center ${isScroll?"md:myDark":"md:myBright"}`}>Pricing</li>
             <li className={`h-10 md:w-[20%]  hover:text-blue-600 text-2xl text-center ${isScroll?"md:myDark":"md:myBright"}`}>Resources</li>
         </ul>
-        <div className={`right-signIn  bg-mygreen md:absolute md:right-2 h-[100%]  md:top-0 ${listButton?"hidden":""} md:block `}>
-                <div className='flex-col md:flex-row  gap-6  text-center  items-center h-[100%]'>
+        <div className={`right-signIn  bg-mygreen md:absolute md:right-2   md:top-0 ${listButton?"hidden":""} md:block z-99`}>
+                <div className='flex-col md:flex-row  gap-6  text-center  items-center h-[100%] z-10'>
                 <button className={`${isScroll?"buttonDark":"buttonLight"} mb-4 w-[90%]  md:mr-4 md:mt-2 md:w-28`}>Get Started</button>
                 <button className={`${isScroll?"buttonLight":"buttonDark"} w-[90%] md:mr-4 md:mt-2  md:w-28`}>Sign-In</button>
                 </div>

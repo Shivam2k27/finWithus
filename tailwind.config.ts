@@ -12,6 +12,20 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         mygreen: "#001d21",
+        myblue:'#CDCBFF',
+      },
+      fontSize:{
+        responsiveLarge: 'clamp(4rem, 2.765rem + 4.71vw, 7rem)',
+        responsiveSmall: 'clamp(1rem, 0.8rem + 4.71vw, 1.5rem)',
+      },
+      keyframes: {
+        myAnimation: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+      },
+      animation: {
+        'fade-in': 'myAnimation 3s ease-in-out', // Set your desired duration and easing
       },
     },
   },
