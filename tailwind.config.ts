@@ -16,6 +16,7 @@ export default {
       },
       fontSize:{
         responsiveLarge: 'clamp(4rem, 2.765rem + 4.71vw, 7rem)',
+        responsiveMedium:'clamp(1.5rem,2.5rem,3rem)',
         responsiveSmall: 'clamp(1rem, 0.8rem + 4.71vw, 1.5rem)',
       },
       keyframes: {
@@ -23,6 +24,10 @@ export default {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
         },
+      },
+      height:{
+        '2rem':'2rem',
+        '3rem':'3rem',
       },
       animation: {
         'fade-in': 'myAnimation 3s ease-in-out', // Set your desired duration and easing

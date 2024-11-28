@@ -27,7 +27,7 @@ const navbar = () => {
             <li className={`h-10 md:w-[20%]  hover:text-blue-600  text-2xl text-center ${isScroll?"md:myDark":"md:myBright"}`}>Pricing</li>
             <li className={`h-10 md:w-[20%]  hover:text-blue-600 text-2xl text-center ${isScroll?"md:myDark":"md:myBright"}`}>Resources</li>
         </ul>
-        <div className={`right-signIn  bg-mygreen md:absolute md:right-2   md:top-0 ${listButton?"hidden":""} md:block z-99`}>
+        <div className={`right-signIn  md:absolute md:right-2   md:top-0 ${listButton?"hidden":""} md:block z-99`}>
                 <div className='flex-col md:flex-row  gap-6  text-center  items-center h-[100%] z-10'>
                 <button className={`${isScroll?"buttonDark":"buttonLight"} mb-4 w-[90%]  md:mr-4 md:mt-2 md:w-28`}>Get Started</button>
                 <button className={`${isScroll?"buttonLight":"buttonDark"} w-[90%] md:mr-4 md:mt-2  md:w-28`}>Sign-In</button>
