@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from 'react'
-import Button from '../UI/Button';
 
 const navbar = () => {
     const [isScroll , setIsscroll] = useState(true);
@@ -23,9 +22,9 @@ const navbar = () => {
             <p className='text-2xl p-2 ml-2 mr-8'>FinWithUs</p>
             </div>
         <ul className={ `bg-mygreen z-999 w-full md:flex md:w-[100%]  md:bg-transparent md:absolute md:top-1.5 md:left-48 md:text-center ${isScroll?"md:myDark":"md:myBright"} ${listButton?"hidden":""}`}>
-            <li className={`h-10 md:w-[20%] hover:text-blue-600  text-2xl text-center ${isScroll?"md:myDark":"md:myBright"}`}>Products</li>
-            <li className={`h-10 md:w-[20%]  hover:text-blue-600  text-2xl text-center ${isScroll?"md:myDark":"md:myBright"}`}>Pricing</li>
-            <li className={`h-10 md:w-[20%]  hover:text-blue-600 text-2xl text-center ${isScroll?"md:myDark":"md:myBright"}`}>Resources</li>
+            <li className={`h-10 md:w-[10%] hover:text-blue-600 md:text-lg text-2xl text-center ${isScroll?"md:myDark":"md:myBright"}`}>Products</li>
+            <li className={`h-10 md:w-[10%]  hover:text-blue-600 md:text-lg  text-2xl text-center ${isScroll?"md:myDark":"md:myBright"}`}>Pricing</li>
+            <li className={`h-10 md:w-[10%]  hover:text-blue-600 md:text-lg text-2xl text-center ${isScroll?"md:myDark":"md:myBright"}`}>Resources</li>
         </ul>
         <div className={`right-signIn  md:absolute md:right-2   md:top-0 ${listButton?"hidden":""} md:block z-99`}>
                 <div className='flex-col md:flex-row  gap-6  text-center  items-center h-[100%] z-10'>

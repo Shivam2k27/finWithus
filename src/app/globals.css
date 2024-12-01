@@ -11,10 +11,10 @@ body {
   overflow-x: hidden;
 }
 .myDark {
-  @apply bg-mygreen text-white 
+  @apply bg-mygreen text-white transition-colors duration-500 ease-in-out;
 }
 .myBright{
-  @apply bg-white text-mygreen
+  @apply bg-white text-mygreen transition-colors duration-500 ease-in-out;
 }
 .buttonDark{
   @apply border-2 bg-mygreen text-white p-2 rounded-lg
@@ -25,5 +25,17 @@ body {
 .hoverme
 {
   @apply  border-b-2 border-blue-200 
+}
+.expenseButton{
+  color:gray;
+  opacity: 0.5;
+  font-size: 2rem;
+  border-top: 2px solid gray;
+  width: 90%;
+  padding: 4px;
+}
+.expenseButton:hover{
+  background-color: whitesmoke;
+  color: #001d21;
 }
 

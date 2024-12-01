@@ -6,6 +6,10 @@ export default {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  safelist: [
+    'myBright',
+    'myDark',
+],
   theme: {
     extend: {
       colors: {
@@ -28,6 +32,9 @@ export default {
       height:{
         '2rem':'2rem',
         '3rem':'3rem',
+        '40rem':'40rem',
+        '30rem':'30rem',
+        '20rem':'20rem',
       },
       animation: {
         'fade-in': 'myAnimation 3s ease-in-out', // Set your desired duration and easing
