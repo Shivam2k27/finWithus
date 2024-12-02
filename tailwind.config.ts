@@ -17,7 +17,8 @@ export default {
         foreground: "var(--foreground)",
         mygreen: "#001d21",
         myblue:'#CDCBFF',
-      },
+        lightgreen:'#CDEED3',
+        textgreen:'#544A2E',      },
       fontSize:{
         responsiveLarge: 'clamp(4rem, 2.765rem + 4.71vw, 7rem)',
         responsiveMedium:'clamp(1.5rem,2.5rem,3rem)',
@@ -35,6 +36,7 @@ export default {
         '40rem':'40rem',
         '30rem':'30rem',
         '20rem':'20rem',
+        '50rem':'50rem',
       },
       animation: {
         'fade-in': 'myAnimation 3s ease-in-out', // Set your desired duration and easing

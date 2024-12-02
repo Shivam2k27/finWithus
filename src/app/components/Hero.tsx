@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { cardData } from "../data";
+import { cardData,corouselData} from "../data";
 import Card from "./Card";
+import Image from "next/image";
+import Corousel from "./Corousel";
 const Hero = () => {
 
   const [expenseState , setExpenseState]=useState('Edit Expense');
@@ -11,8 +13,8 @@ const Hero = () => {
     setExpenseState(value)
   }
   useEffect(()=>{
-    const section2 = sectionRef2.current;
-    const section1 =sectionRef1.current;
+    const section2:null | string = sectionRef2.current;
+    const section1:null | string = sectionRef1.current;
     const scrollHandler =(entries)=>{
      entries.forEach(element => {
       if(element.isIntersecting)
@@ -131,7 +133,7 @@ const Hero = () => {
         </div>
           </div>
         <div className="flex-1 bg-gray-200 rounded-lg p-4">
-         <h3>!Kindly note the functionality still needs to be added coming soon....</h3>
+         <h3>!Kindly note the backEnd is being configured.More features coming soon....</h3>
          <p className="text-responsiveMedium mt-2">{expenseState}</p>
          <div className="grid grid-cols-4 gap-4 self-center">
           <div className="w-[40%] h-20rem bg-blue-400"><div className="h-[40%] bg-gray-400"></div></div>
@@ -141,6 +143,26 @@ const Hero = () => {
          </div>
         </div>
       </div>
+      <section className="services clients p-12 rounded-md">
+         <div className="bg-lightgreen grid sm:grid-cols-2 grid-rows-1 md:gap-8 sm:gap-6 gap-2 p-6">
+          <div className="flex flex-col text-textgreen justify-center">
+           <h2 className="sm:text-responsiveMedium p-2">Full Service Fund Management</h2>
+           <h3 className="sm:text-responsiveSmall p-2">FinWithUs full service offerings provides access to 50+ services that remove friction from fund management for venture funds, rolling funds, and syndicates. </h3>
+           <h3 className="p-2 pt-4 hover:text-mygreen hover:cursor-pointer"> Explore our fund & syndicate offerings</h3>
+          </div>
+          <div className="image-section">
+           <Image
+           src='/people.svg'
+           alt="image"
+           width={600}
+           height={300}
+           />
+          </div>
+         </div>
+      </section>
+      <section className="Corousel">
+        <Corousel/>
+      </section>
     </>
   );
 };

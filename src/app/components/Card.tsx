@@ -9,7 +9,7 @@ const Card = ({items}:any) => {
         alt="finimage"
         width={50}
         height={100}
-        className='w-[90%] hover:scale-95  transistion-transform duration-300 ease-in-out'
+        className='w-[90%] hover:scale-95 rounded-lg transistion-transform duration-300 ease-in-out'
         layout='responsive'/>
         <p className='mt-2'>{items.description}</p>
         </div>

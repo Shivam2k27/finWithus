@@ -6,6 +6,15 @@
   margin: 0;
   padding: 0;
 }
+@keyframes image{
+0%
+{
+opacity: 0;
+}
+100%{
+opacity: 1;
+}
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
@@ -37,5 +46,24 @@ body {
 .expenseButton:hover{
   background-color: whitesmoke;
   color: #001d21;
+}
+
+.carousel-box {
+  width: 100%;
+  height: 30rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: fade 1s ease-in-out;
+  transition: background-image 1s ease-in-out; /* Smooth transition */
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
