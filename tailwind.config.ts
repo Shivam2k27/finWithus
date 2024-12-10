@@ -18,7 +18,9 @@ export default {
         mygreen: "#001d21",
         myblue:'#CDCBFF',
         lightgreen:'#CDEED3',
-        textgreen:'#544A2E',      },
+        textgreen:'#544A2E',
+        mybrown:'#6E5C3B',
+      textbrown:'#E0FEE6'},
       fontSize:{
         responsiveLarge: 'clamp(4rem, 2.765rem + 4.71vw, 7rem)',
         responsiveMedium:'clamp(1.5rem,2.5rem,3rem)',

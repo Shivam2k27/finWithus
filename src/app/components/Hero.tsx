@@ -160,7 +160,7 @@ const Hero = () => {
           </div>
          </div>
       </section>
-      <section className="Corousel">
+      <section className="Corousel w-full">
         <Corousel/>
       </section>
     </>
