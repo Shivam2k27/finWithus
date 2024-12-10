@@ -1,57 +1,62 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { cardData,corouselData} from "../data";
+import { cardData } from "../data";
 import Card from "./Card";
 import Image from "next/image";
 import Corousel from "./Corousel";
+
 const Hero = () => {
+  const [expenseState, setExpenseState] = useState("Edit Expense");
+  const sectionRef1 = useRef<HTMLDivElement | null>(null);  // Keep it HTMLDivElement, as it's referring to a <div> element
+  const sectionRef2 = useRef<HTMLDivElement | null>(null);  // Same here  
 
-  const [expenseState , setExpenseState]=useState('Edit Expense');
-  const sectionRef2 = useRef(null);
-  const sectionRef1 = useRef(null);
-  const expenseClickHandler=(value:string)=>{
-    setExpenseState(value)
-  }
-  useEffect(()=>{
-    const section2:null | string = sectionRef2.current;
-    const section1:null | string = sectionRef1.current;
-    const scrollHandler =(entries)=>{
-     entries.forEach(element => {
-      if(element.isIntersecting)
-      {
-        section1.classList.add('myBright');
-        section1.classList.remove('myDark');
-        console.log("Scrolled Down");}
-      else
-      {
-        section1.classList.remove('myBright');
-        section1.classList.add('myDark');
-       console.log("Scrolled Up");
-      }
-     });
+  const expenseClickHandler = (value: string) => {
+    setExpenseState(value);
+  };
+
+  useEffect(() => {
+    const section1 = sectionRef1.current;
+    const section2 = sectionRef2.current;
+
+    if (section1 && section2) {
+      const scrollHandler = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            section1.classList.add("myBright");
+            section1.classList.remove("myDark");
+            console.log("Scrolled Down");
+          } else {
+            section1.classList.remove("myBright");
+            section1.classList.add("myDark");
+            console.log("Scrolled Up");
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(scrollHandler, {
+        threshold: 0.7, // Trigger when 70% of the element is in view
+      });
+
+      observer.observe(section2);
+
+      return () => observer.disconnect();
     }
+  }, []);
 
-    const observer = new IntersectionObserver(scrollHandler,{
-      threshold:0.7,
-    })
-    observer.observe(section2);
-    return () => observer.disconnect();
-  },[])
   return (
     <>
       <div className="bg-mygreen h-auto w-full pt-20">
         <div className="pt-20 pl-8">
-          <button className=" rounded-2xl p-3 m-2 text-blue bg-gradient-to-r from-blue-200 to-red-200">
+          <button className="rounded-2xl p-3 m-2 text-blue bg-gradient-to-r from-blue-200 to-red-200">
             Explore our Fund ERP software
           </button>
           <h1 className="text-myblue text-responsiveLarge leading-none .animate-fade-in">
             Build to Scale
-            <br className="m-0 p-0"></br>
+            <br className="m-0 p-0" />
             all private firms
           </h1>
           <h2 className="text-myblue text-responsiveSmall mt-4 ml-1">
-            FinWithUs provides investors and Innovators <br /> with tools to
-            grow{" "}
+            FinWithUs provides investors and Innovators <br /> with tools to grow{" "}
           </h2>
           <button className="bg-white m-4 md:w-auto w-[40%] rounded-lg p-3 text-sm md:text-lg hover:bg-gray-50 ">
             Contact Sales
@@ -63,9 +68,10 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div  ref ={sectionRef1} className="transistion-box-1 myDark pt-14">
+
+      <div ref={sectionRef1} className="transistion-box-1 myDark pt-14">
         <section className="flex justify-center w-full">
-          <div className="partners-center-box flex-col flex  justify-center">
+          <div className="partners-center-box flex-col flex justify-center">
             <div className="text-center  w-auto self-center ">
               <h2 className="text-responsiveSmall">
                 Better together.{" "}
@@ -105,63 +111,101 @@ const Hero = () => {
           </div>
         </section>
 
-        <section  ref={sectionRef2} className="flex flex-col mt-36 pl-12">
+        <section ref={sectionRef2} className="flex flex-col mt-36 pl-12">
           <div>
-             <h2 className="md:text-responsiveSmall">Software for Venure & Private Equity</h2>
+            <h2 className="md:text-responsiveSmall">Software for Venture & Private Equity</h2>
           </div>
           <div>
-            <h1 className="md:text-responsiveMedium text-responsiveSmall mt-10 leading-tight">Our software suite amplifies
-              <br/>
-              opportuinity for venture and private
-              <br/>
+            <h1 className="md:text-responsiveMedium text-responsiveSmall mt-10 leading-tight">
+              Our software suite amplifies
+              <br />
+              opportunity for venture and private
+              <br />
               equity firms regardless of stage or provider.
             </h1>
           </div>
         </section>
       </div>
+
       <div className="loading-affect flex flex-col gap-8 sm:flex-row p-14 text-center sm:h-40rem">
-        <div className="flex flex-col flex-1  justify-between">
+        <div className="flex flex-col flex-1 justify-between">
           <div>
-          <button name='Edit Expense' onClick={(e)=>expenseClickHandler(e.currentTarget.name)} className="expenseButton"><h2>Edit Expense</h2></button>
-         <button name='Limit Expense' onClick={(e)=>expenseClickHandler(e.currentTarget.name)} className="expenseButton"><h2>Limit Expense</h2></button>
-         <button name='Expense Data' onClick={(e)=>expenseClickHandler(e.currentTarget.name)} className="expenseButton"><h2>Expense data</h2></button>
-         <button name='Optimize Expense' onClick={(e)=>expenseClickHandler(e.currentTarget.name)} className="expenseButton border-b-2 border-gray-500"><h2>Optimize Expense</h2></button>
-        </div>
-        <div>
-          <p className="text-responsiveSmall">A branded, secure doc sharing experience for your LPs.</p>
-          <button className="buttonDark hover:text-mygreen hover:bg-white ">Explore More</button>
-        </div>
+            <button
+              name="Edit Expense"
+              onClick={(e) => expenseClickHandler(e.currentTarget.name)}
+              className="expenseButton"
+            >
+              <h2>Edit Expense</h2>
+            </button>
+            <button
+              name="Limit Expense"
+              onClick={(e) => expenseClickHandler(e.currentTarget.name)}
+              className="expenseButton"
+            >
+              <h2>Limit Expense</h2>
+            </button>
+            <button
+              name="Expense Data"
+              onClick={(e) => expenseClickHandler(e.currentTarget.name)}
+              className="expenseButton"
+            >
+              <h2>Expense data</h2>
+            </button>
+            <button
+              name="Optimize Expense"
+              onClick={(e) => expenseClickHandler(e.currentTarget.name)}
+              className="expenseButton border-b-2 border-gray-500"
+            >
+              <h2>Optimize Expense</h2>
+            </button>
           </div>
+          <div>
+            <p className="text-responsiveSmall">
+              A branded, secure doc sharing experience for your LPs.
+            </p>
+            <button className="buttonDark hover:text-mygreen hover:bg-white ">Explore More</button>
+          </div>
+        </div>
         <div className="flex-1 bg-gray-200 rounded-lg p-4">
-         <h3>!Kindly note the backEnd is being configured.More features coming soon....</h3>
-         <p className="text-responsiveMedium mt-2">{expenseState}</p>
-         <div className="grid grid-cols-4 gap-4 self-center">
-          <div className="w-[40%] h-20rem bg-blue-400"><div className="h-[40%] bg-gray-400"></div></div>
-          <div className="w-[40%] h-20rem bg-blue-400"><div className="h-[60%] bg-gray-400"></div></div>
-          <div className="w-[40%] h-20rem bg-blue-400"><div className="h-[20%] bg-gray-400"></div></div>
-          <div className="w-[40%] h-20rem bg-blue-400"><div className="h-[80%] bg-gray-400"></div></div>
-         </div>
+          <h3>!Kindly note the backEnd is being configured.More features coming soon....</h3>
+          <p className="text-responsiveMedium mt-2">{expenseState}</p>
+          <div className="grid grid-cols-4 gap-4 self-center">
+            <div className="w-[40%] h-20rem bg-blue-400">
+              <div className="h-[40%] bg-gray-400"></div>
+            </div>
+            <div className="w-[40%] h-20rem bg-blue-400">
+              <div className="h-[60%] bg-gray-400"></div>
+            </div>
+            <div className="w-[40%] h-20rem bg-blue-400">
+              <div className="h-[20%] bg-gray-400"></div>
+            </div>
+            <div className="w-[40%] h-20rem bg-blue-400">
+              <div className="h-[80%] bg-gray-400"></div>
+            </div>
+          </div>
         </div>
       </div>
+
       <section className="services clients p-12 rounded-md">
-         <div className="bg-lightgreen grid sm:grid-cols-2 grid-rows-1 md:gap-8 sm:gap-6 gap-2 p-6">
+        <div className="bg-lightgreen grid sm:grid-cols-2 grid-rows-1 md:gap-8 sm:gap-6 gap-2 p-6">
           <div className="flex flex-col text-textgreen justify-center">
-           <h2 className="sm:text-responsiveMedium p-2">Full Service Fund Management</h2>
-           <h3 className="sm:text-responsiveSmall p-2">FinWithUs full service offerings provides access to 50+ services that remove friction from fund management for venture funds, rolling funds, and syndicates. </h3>
-           <h3 className="p-2 pt-4 hover:text-mygreen hover:cursor-pointer"> Explore our fund & syndicate offerings</h3>
+            <h2 className="sm:text-responsiveMedium p-2">Full Service Fund Management</h2>
+            <h3 className="sm:text-responsiveSmall p-2">
+              FinWithUs full service offerings provides access to 50+ services that remove friction from fund
+              management for venture funds, rolling funds, and syndicates.{" "}
+            </h3>
+            <h3 className="p-2 pt-4 hover:text-mygreen hover:cursor-pointer">
+              Explore our fund & syndicate offerings
+            </h3>
           </div>
           <div className="image-section">
-           <Image
-           src='/people.svg'
-           alt="image"
-           width={600}
-           height={300}
-           />
+            <Image src="/people.svg" alt="image" width={600} height={300} />
           </div>
-         </div>
+        </div>
       </section>
+
       <section className="Corousel w-full">
-        <Corousel/>
+        <Corousel />
       </section>
     </>
   );

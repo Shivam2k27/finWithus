@@ -1,6 +1,14 @@
 import React from 'react'
 import Image from 'next/image'
-const Card = ({items}:any) => {
+interface propsData{
+  title:string,
+  description:string,
+  image:string,
+}
+interface cardType {
+  items:propsData,
+}
+const Card = ({items}:cardType) => {
   return (
     <div className=' rounded p-2 border-green-900 border-t-2 border-b-2 m-2'>
         <div className='text-white p-2'>

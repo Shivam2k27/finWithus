@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react'
 
-const navbar = () => {
+const Navbar = () => {
     const [isScroll , setIsscroll] = useState(true);
     const [listButton , setlistButton]=useState(true);
     const scrollHandler=()=>{
@@ -40,4 +40,4 @@ const navbar = () => {
   )
 }
 
-export default navbar
+export default Navbar
